@@ -1,9 +1,21 @@
-package filesize
+package parsables
 
 import (
 	"encoding/json"
 	"fmt"
 )
+
+func ExampleFileSizeFromString() {
+	s, err := FileSizeFromString("420 Gigabyte")
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(s)
+
+	// Output:
+	// 420000000000
+}
 
 func ExampleFileSize_UnmarshalText() {
 	var s FileSize

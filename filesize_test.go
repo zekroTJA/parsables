@@ -1,4 +1,4 @@
-package filesize
+package parsables
 
 import (
 	"fmt"

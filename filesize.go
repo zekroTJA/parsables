@@ -1,4 +1,4 @@
-package filesize
+package parsables
 
 import (
 	"bytes"
@@ -39,9 +39,9 @@ import (
 //   - eib, eibyte, exibyte > factor 1024^5
 type FileSize int64
 
-// FromString parses FileSize from the given string s.
+// FileSizeFromString parses FileSize from the given string s.
 // For format details, see documentation of FileSize.
-func FromString(s string) (FileSize, error) {
+func FileSizeFromString(s string) (FileSize, error) {
 	runes := []rune(s)
 
 	if len(runes) == 0 {
@@ -131,6 +131,6 @@ func FromString(s string) (FileSize, error) {
 }
 
 func (t *FileSize) UnmarshalText(p []byte) (err error) {
-	*t, err = FromString(string(p))
+	*t, err = FileSizeFromString(string(p))
 	return err
 }
